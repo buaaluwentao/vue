@@ -1,0 +1,32 @@
+<html>
+	<body>
+		<p>xxx </p>
+		<div id="app">
+			<index> </index>
+			<index> </index>
+		</div>
+		<script src="./vue.js"></script>
+		<script >
+                        var com = Vue.component('index' ,{
+                                template:"<div><input type='text' v-model='name'></input><p>hello,{{name}}</p></div>",
+                        	data:function(){
+					return {name:"lwt"};
+				}
+				
+			});
+                </script>
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{}
+			});
+		</script>
+		<!--
+		<script >
+			var com = Vue.component('index' ,{
+				template:"<p>嗯</p>"
+			});
+		</script>
+		-->
+	</body>
+</html>

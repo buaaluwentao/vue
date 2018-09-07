@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+	<meta http-equiv="content-Type" content="text/html;charset=utf-8">
+	<!--  <meta charset="UTF-8">-->
+  	<title>Insert title here</title>
+  </head>
+  <script src="./vue.js"> </script>
+  <body >
+	<div id="app2">
+		<div id="app" v-html="html">
+			<p>hh</p>
+			<!--hello,{{name}}-->
+			<!--<img :src="avator" alt="图片"/>-->
+		
+		</div><br>
+		<div v-if="ok">
+			{{name != "123" ? name : name + "123"}}
+		</div><br>
+		<div>
+			<ul v-if="ok">
+				<li  v-for="item in items">
+					{{item}}
+				</li>
+			</ul>
+		</div>
+		
+		<button v-on:click="add()"></button>
+		<p v-text="num"></p>
+		<input v-model="name" placeholder="edit me"></input>
+		<p>{{name}}</p>	
+		<textarea>{{name}}</textarea>
+		<input type="checkbox" id="checkbox" v-model="checked">
+		<label for="checkbox">{{ checked }}</label>	
+	</div>
+	<div id='example-3'>
+  		<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  		<label for="jack">Jack</label>
+  		<input type="checkbox" id="john" value="John" v-model="checkedNames">
+  		<label for="john">John</label>
+  		<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  		<label for="mike">Mike</label>
+  		<br>
+  		<span>Checked names: {{ checkedNames }}</span>
+	</div>
+	<div id="example-5">
+  		<select v-model="selected">
+    			<option disabled value="">请选择</option>
+    			<option>A</option>
+    			<option>B</option>
+    			<option>C</option>
+  		</select>
+  		<span>Selected: {{ selected }}</span>
+		<p display="none">{{fullName}}</p>
+	</div>
+  </body>
+	<script>
+		Vue.filter("filter",function(obj){
+			return obj.split('-').join('');
+		});
+		var vm = new Vue({
+                el:"#app",
+                data:{
+			ok:true,
+			html:"<p>好的</p>",
+                        name:"luwentao",
+                        age :21,
+                	avator:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536224483835&di=5bd594cdf0e0aa0014a27056b48b180f&imgtype=0&src=http%3A%2F%2Fwww.uml.org.cn%2Fsafe%2Fimages%2F2018022724.jpg"
+		}
+        });
+		var vm2 = new Vue({
+			el:"#app2",
+			data:{
+				name:"123",
+				ok:true,
+				items:[
+					"123","234"
+				],
+				num:0,
+				add:function(){
+					this.name = "lwt";
+					
+				},
+				checked:true
+			}
+			
+		});
+	
+	</script>
+	<script>
+		new Vue({
+  			el: '#example-3',
+  			data: {
+    				checkedNames: []
+ 		 	}	
+		})
+	</script>
+	<script>
+		new Vue({
+ 			 el: '#example-5',
+  			  data: {
+  			  selected: '',
+			  name:"l-w-t",
+			  },
+			  computed:{
+                                fullName(){
+                                        return this.name;
+                                }}
+                               	
+		 
+		})
+	
+	</script>	
+</html>

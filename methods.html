@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+	<meta http-equiv="content-Type" content="text/html;charset=utf-8">
+	<!--  <meta charset="UTF-8">-->
+  	<title>Insert title here</title>
+  </head>
+  <script src="./vue.js"> </script>
+  <script></script>
+  <body >
+	<p>aha4</p>
+	
+	<!-- <input type="text" v-model="message"> </input>-->
+  	<div id="app">
+		<indexx></indexx>
+		<!--<index></index>-->
+		<!--
+		<input type="text" v-model="message"> </input>
+		<label for="pp"><p id="pp">{{newmessage}}</p></label>
+		-->
+	 </div>	
+  </body>
+  <script>
+  	Vue.component('index' ,{
+		template:"<p>这个是模版</p>",
+		//el:"#app",
+		/*
+		data:{
+			message:"hello,world"
+		},
+		beforeCreate:function(){
+			//alert("beforeCreate");
+			//console.log("%s---%s" , this.$el,this.$data);
+		},
+		created:function(){
+			//alert(document);
+			console.log("%s---%s" , this.$el,this.$data.message);
+			
+		},
+		mounted:function(){
+			//alert(this.$el);
+			//console.log("%s--%s"  , this.$el,this.$data.message);
+			this.$data.message = "mounted"
+		},
+		destroyed:function(){
+			alert("hello");
+		},
+		computed:{
+			newmessage:function(){
+				return this.$data.message + "你好";
+			}
+		}*/
+	});
+	var vm2 = new Vue({
+		el:"#app",
+		data:{
+			name:"name",
+			age:"age"
+		},
+		//mounted:this.testMethods(),
+		methods:{
+			testMethods:function(){
+				console.log("hello");
+			}
+		}
+		
+	});
+	//alert(vm.$options.a);
+  
+  </script>
+  <script>
+  	/*var obj = {
+		"name",
+		"age"
+	};
+	alert(obj.age)*/
+	var vmm = Vue.component("indexx" , {
+		template:"<p>这个是新模版，内容为{{this.message}}</p>"
+		,
+		data:function(){
+			return {message:"hello"};
+		}
+	});
+  </script>
+  <body >
+  </body>
+</html>
